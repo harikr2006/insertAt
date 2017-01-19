@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>InsertAt</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="js/insertAt.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#insertAtiFrame").on("click", function() {
+        	var text = $("#content").val()
+            $("#iframe").insertAt({
+                value: text
+            });
+           
+        })
+
+        $("#insertAtDIV").on("click", function() {
+        	var text = $("#content").val()
+            $("#divElement").insertAt({
+                value: text
+            });
+           
+        })
+
+
+    })
+    </script>
+    <style>
+    	body{
+    		padding:30px;
+    		background:#333;
+    	}
+    	#content{
+    		border:1px solid #000;
+    	}
+    	 #iframe,#divElement{
+        	width:100%;
+        	height:200px;
+        	display: block;
+        	border:1px solid #000;
+        	border-radius: 6px;
+        	background-color: #fff;
+        	padding: 30px;
+
+        }
+         .iframe-before{
+         	
+         	position: absolute;
+         	top:1px;
+         	left: 16px;
+         	background-color:#666;
+         	color:#fff;
+         	width: auto;
+         	padding:3px 6px;
+         	border-radius: 6px 0 6px 0;
+         	font-size: 11px;
+         	min-width: 60px;
+         	text-align: center;
+         }
+         .btn-grp{
+         	text-align: center;
+         }
+         #divElement{
+         	margin-top: 20px;
+         }
+           #divElement::before{
+           	content:"DIV";
+         	
+         	position: absolute;
+         	top:21px;
+         	left: 16px;
+         	background-color:#666;
+         	color:#fff;
+         	width: auto;
+         	padding:3px 6px;
+         	border-radius: 6px 0 6px 0;
+         	font-size: 11px;
+         	min-width: 40px;
+         	text-align: center;
+         }
+
+    	
+    </style>
+</head>
+
+<body>
+
+<div class="row">
+	<div class="col-md-5">
+		<textarea name="" id="content" cols="30" rows="20" class="form-control"></textarea>
+	</div>
+	<div class="col-md-2">
+		<div class="btn-grp">
+			<button class="btn btn-danger" id="insertAtiFrame">Insert At iFrame</button>
+		<br/>&nbsp;<br/>
+		<button class="btn btn-danger" id="insertAtDIV">Insert At div</button>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="row">
+			<div class="col-md-12">
+			<div class="iframe-before">IFRAME</div>
+				 <iframe src="blank.html" frameborder="0" id="iframe"></iframe>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="divElement">
+					sample text should be here
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+   
+    
+    ]
+</body>
+
+</html>
